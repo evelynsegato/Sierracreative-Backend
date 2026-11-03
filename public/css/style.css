@@ -1,0 +1,833 @@
+:root {
+    --preto: #0A0A0A;
+    --branco: #FFFFFF;
+    --dourado: #A88B4A;
+    --cinza: #151515;
+}
+
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+a {
+    color: var(--branco);
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.logo {
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: var(--dourado);
+}
+
+.pagina-atual {
+    color: var(--dourado);
+}
+
+.principal {
+    text-align: left;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-image: url("../imagens/fundo.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.principal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.principal h1 {
+    font-size: 50px;
+    letter-spacing: 3px;
+}
+
+.principal p {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.principal-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: 8%;
+}
+
+.botao {
+    background-color:white;
+    color: rgb(31, 31, 31);
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.botao:hover {
+    background-color: var(--dourado);
+    color: white;
+    
+}
+
+.fraseprincipal {
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.frasesegundaria {
+    max-width: 500px;
+}
+
+.servicos-resumo {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.servicos-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.servico {
+    max-width: 250px;
+}
+
+.servico h3 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.servico h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--dourado);
+    margin: 10px auto;
+}
+
+.portfolio-resumo {
+    padding: 80px 40px;
+    text-align: center;
+    font-size: 20px;
+    background-image: url("../imagens/fundo2.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.portfolio-resumo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.portfolio-resumo h2 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.portfolio-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    z-index: 2;
+}
+
+.portfolio-item {
+    width: 350px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.portfolio-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-position: center 65%;
+    transition: transform 0.5s;
+}
+
+.portfolio-item:hover video {
+    transform: scale(1.1);
+}
+
+.portfolio-item h3 {
+    position: relative;
+    z-index: 2;
+    font-size: 30px;
+}
+
+.portfolio-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.portfolio-resumo > * {
+    position: relative;
+    z-index: 2;
+}
+
+.carrossel {
+    width: 100%;
+    margin: 40px 0;
+    overflow-x: auto;
+    display: flex;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none; 
+}
+
+.video-carrossel {
+    flex: 0 0 auto;
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    display: block !important;
+    margin-right: 15px;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.video-carrossel:hover {
+    transform: scale(1.02);
+}
+
+.portfolio-pagina {
+    padding: 0;
+    text-align: center;
+}
+
+.portfolio-intro {
+    padding: 70px 0;
+    background-image: url("../imagens/fundo.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.portfolio-intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.portfolio-intro > * {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: 8%;
+}
+
+.portfolio-intro h1,
+.portfolio-intro p {
+    color: white;
+}
+
+.portfolio-pagina h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.portfolio-pagina > p {
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.portfolio-pagina-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.portfolio-pagina-item:nth-child(even) {
+    background-color: var(--cinza);
+}
+
+.portfolio-pagina-item {
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+}
+
+.portfolio-pagina-item h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.portfolio-pagina-item > p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-top: 20px;
+}
+
+.controles-carrossel {
+    display: none; 
+}
+
+.sobre {
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.sobre-imagem {
+    width: 100%;
+    height: 100%;
+    background-image: url("../imagens/Sobrenos.PNG");
+    background-size: cover;
+    background-position: center 43%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.sobre-imagem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.sobre-texto {
+    position: relative;
+    z-index: 2;
+    padding: 50px 8%;
+}
+
+.sobre-pequeno {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.sobre h1 {
+    font-size: 100px;
+    line-height: 0.85;
+    letter-spacing: -3px;
+    margin: 0 0 30px 0;
+}
+
+.sobre-descricao {
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.sobre-historia {
+    padding: 120px 8%;
+    background-color: var(--cinza);
+}
+
+.sobre-historia-conteudo {
+    max-width: 800px;
+}
+
+.sobre-historia .sobre-pequeno {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: var(--dourado);
+}
+
+.sobre-historia h2 {
+    font-size: 50px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.sobre-historia p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.servicos-carrossel {
+    width: 100%;
+    height: calc(100vh - 100px);
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.servico-slide.ativo {
+    display: block;
+}
+
+.servico-slide-imagem {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.servico-slide-imagem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.servico-slide-imagem.storymaker {
+    background-image: url("../imagens/storymaker.jpg");
+}
+
+.servico-slide-imagem.videomaker {
+    background-image: url("../imagens/videomaker.jpg");
+}
+
+.servico-slide-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin-left: 8%;
+    color: white;
+}
+
+.servico-slide-conteudo span {
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+.servico-slide-conteudo h2 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin: 15px 0 25px 0;
+}
+
+.servico-slide-conteudo p {
+    max-width: 450px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #eeeeee;
+    margin-bottom: 30px;
+}
+
+.botao-servico {
+    display: inline-block;
+    border: 1px solid white;
+    padding: 14px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.botao-servico:hover {
+    background-color: white;
+    color: var(--preto);
+}
+
+.seta-servico {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--preto);
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.seta-servico:hover {
+    background-color: var(--dourado);
+    color: white;
+}
+
+.seta-servico.anterior {
+    left: 20px;
+}
+
+.seta-servico.proximo {
+    right: 20px;
+}
+
+.bolinhas-servico {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 5;
+}
+
+.bolinha-servico {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.bolinha-servico.ativa {
+    background-color: white;
+}
+
+
+.servicos-detalhes {
+    background-color: var(--cinza);
+}
+
+.servico-detalhe {
+    min-height: 450px;
+    padding: 100px 8%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #333333;
+}
+
+.servico-detalhe:nth-child(even) {
+    background-color: var(--preto);
+}
+
+.servico-detalhe span {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--dourado);
+}
+
+.servico-detalhe h3 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin: 20px 0 30px 0;
+}
+
+.servico-detalhe p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.contato {
+    padding: 100px 8%;
+    background-color: var(--preto);
+}
+
+.contato-intro {
+    max-width: 700px;
+    margin-bottom: 80px;
+}
+
+.contato-pequeno {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--dourado);
+    margin-bottom: 20px;
+}
+
+.contato-intro h1 {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin: 0 0 25px 0;
+}
+
+.contato-intro > p:last-child {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    max-width: 1100px;
+}
+
+.contato-informacoes h2 {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.contato-informacoes > p {
+    max-width: 450px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #cccccc;
+}
+
+.contato-links {
+    margin-top: 50px;
+}
+
+.contato-links p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.contato-links strong {
+    color: white;
+    letter-spacing: 1px;
+}
+
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-contato label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--cinza);
+    border: 1px solid #333333;
+    color: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+    outline: 2px solid var(--dourado);
+    border-color: var(--dourado);
+}
+
+.formulario-contato textarea {
+    resize: vertical;
+}
+
+.formulario-contato button {
+    width: fit-content;
+    background-color: white;
+    color: var(--preto);
+    border: none;
+    padding: 14px 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.formulario-contato button:hover {
+    background-color: var(--dourado);
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 25px 15px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .portfolio-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .principal-conteudo {
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    .principal-conteudo h1 {
+        font-size: 42px;
+    }
+
+    .fraseprincipal {
+        font-size: 22px;
+    }
+
+    .frasesegundaria {
+        font-size: 16px;
+    }
+
+    .sobre-texto h1 {
+    font-size: 42px;
+    }
+
+    .sobre-descricao {
+        font-size: 16px;
+        padding-top: 320px;
+    }
+
+    .sobre-historia-conteudo h2 {
+        font-size: 28px;
+    }
+
+    .servicos-carrossel h1 {
+    font-size: 30px;
+    }
+
+    .servico-slide-conteudo h2 {
+        font-size: 32px;
+    }
+
+   .seta-servico {
+    font-size: 25px;
+    width: 35px;
+    height: 35px;
+    }
+
+  .servico-slide-conteudo span {
+    position: relative;
+    top: 20px;
+    }
+
+    .portfolio-intro > * {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+        text-align: center;
+    }
+
+    .contato {
+    padding: 60px 20px;
+}
+
+.contato-intro {
+    margin-bottom: 50px;
+}
+
+.contato-intro h1 {
+    font-size: 40px;
+}
+
+.contato-conteudo {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    width: 100%;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .portfolio-container {
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .portfolio-item {
+        width: 260px;
+    }
+
+}

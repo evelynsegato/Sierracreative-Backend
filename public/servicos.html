@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Serviços | Sierra Creative</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html" class="logo">SIERRA CREATIVE</a>
+
+        <nav>
+
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="servicos.html" class="pagina-atual">Serviços</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="contato.html">Contato</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="servicos-carrossel">
+
+            <h1>SERVIÇOS</h1>
+
+            <div class="servico-slide ativo">
+
+                <div class="servico-slide-imagem storymaker">
+
+                    <div class="servico-slide-conteudo">
+
+                        <span>01</span>
+
+                        <h2>STORYMAKER</h2>
+
+                        <a href="#storymaker" class="botao-servico">
+                            SAIBA MAIS →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="servico-slide">
+
+                <div class="servico-slide-imagem videomaker">
+
+                    <div class="servico-slide-conteudo">
+
+                        <span>02</span>
+
+                        <h2>VIDEOMAKER</h2>
+
+                        <a href="#videomaker" class="botao-servico">
+                            SAIBA MAIS →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="seta-servico anterior" onclick="mudarServico(-1)">
+                ‹
+            </button>
+
+            <button class="seta-servico proximo" onclick="mudarServico(1)">
+                ›
+            </button>
+
+
+            <div class="bolinhas-servico">
+
+                <button class="bolinha-servico ativa" onclick="irParaServico(0)" aria-label="Ir para Storymaker"></button>
+                <button class="bolinha-servico" onclick="irParaServico(1)" aria-label="Ir para Videomaker"></button>
+
+            </div>
+
+        </section>
+
+
+        <section class="servicos-detalhes">
+
+
+            <div class="servico-detalhe" id="storymaker">
+
+                <span>01</span>
+
+                <h3>STORYMAKER</h3>
+
+                <p>
+                    O Storymaker acompanha momentos de forma espontânea,
+                    criando conteúdos rápidos e naturais para redes sociais.
+                </p>
+
+                <p>
+                    A ideia é registrar aquilo que acontece de verdade, cobrindo em tempo real a festa nos stories, para você poder assistir e acompanhar tudo após acabar.
+                </p>
+
+            </div>
+
+
+            <div class="servico-detalhe" id="videomaker">
+
+                <span>02</span>
+
+                <h3>VIDEOMAKER</h3>
+
+                <p>
+                    O serviço de Videomaker é voltado para produções com
+                    uma abordagem mais cinematográfica e planejada.
+                </p>
+
+                <p>
+                    Registramos momentos especiais, eventos e projetos
+                    criando vídeos que contam histórias e preservam
+                    experiências importantes.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+
+    <p>© 2026 Sierra Creative. Todos os direitos reservados.</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
