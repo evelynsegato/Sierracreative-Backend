@@ -16,3 +16,6 @@ spl_autoload_register(function (string $classe) {
         }
     }
 });
+
+
+Sessao::iniciar();
