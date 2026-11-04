@@ -15,9 +15,13 @@ try {
     $rotas->adicionar('GET',  '/auth/eu',       fn() => $auth->eu());
 
     // Solicitações
-    $rotas->adicionar('POST', '/solicitacoes',        fn() => $solicitacoes->criar());
-    $rotas->adicionar('GET',  '/solicitacoes',        fn() => $solicitacoes->listar());
-    $rotas->adicionar('GET',  '/solicitacoes/{id}',   fn($id) => $solicitacoes->ver((int) $id));
+    $rotas->adicionar('POST',   '/solicitacoes',                 fn() => $solicitacoes->criar());
+    $rotas->adicionar('GET',    '/solicitacoes',                 fn() => $solicitacoes->listar());
+    $rotas->adicionar('GET',    '/solicitacoes/{id}',            fn($id) => $solicitacoes->ver((int) $id));
+    $rotas->adicionar('PUT',    '/solicitacoes/{id}',            fn($id) => $solicitacoes->atualizar((int) $id));
+    $rotas->adicionar('POST',   '/solicitacoes/{id}/cancelar',   fn($id) => $solicitacoes->cancelar((int) $id));
+    $rotas->adicionar('PATCH',  '/solicitacoes/{id}/status',     fn($id) => $solicitacoes->mudarStatus((int) $id));
+    $rotas->adicionar('DELETE', '/solicitacoes/{id}',            fn($id) => $solicitacoes->excluir((int) $id));
 
     $rotas->executar($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'] ?? '/');
 } catch (Throwable $e) {

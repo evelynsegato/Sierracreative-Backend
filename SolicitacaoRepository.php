@@ -58,4 +58,30 @@ class SolicitacaoRepository
         $linha = $stmt->fetch();
         return $linha ?: null;
     }
+
+    public function atualizar(int $id, string $telefone, string $tipo, string $mensagem): void
+    {
+        $sql = 'UPDATE solicitacoes
+                SET telefone = :telefone, tipo_servico = :tipo, mensagem = :mensagem
+                WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':telefone' => $telefone,
+            ':tipo'     => $tipo,
+            ':mensagem' => $mensagem,
+            ':id'       => $id,
+        ]);
+    }
+
+    public function atualizarStatus(int $id, string $status): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE solicitacoes SET status = :status WHERE id = :id');
+        $stmt->execute([':status' => $status, ':id' => $id]);
+    }
+
+    public function excluir(int $id): void
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM solicitacoes WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+    }
 }
