@@ -1,0 +1,71 @@
+.auth {
+    padding: 80px 8%;
+    background-color: var(--preto);
+    min-height: 60vh;
+}
+
+.auth h1 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    margin: 0 0 30px 0;
+}
+
+.auth-abas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.aba {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #333333;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.aba.ativa {
+    background-color: var(--dourado);
+    border-color: var(--dourado);
+}
+
+.auth-form {
+    max-width: 450px;
+}
+
+.auth-erro {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin: -15px 0 20px 0;
+    min-height: 0;
+}
+
+.auth-mensagem {
+    max-width: 450px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.auth-mensagem.erro {
+    color: #ff6b6b;
+}
+
+.auth-mensagem.ok {
+    color: #7bd88f;
+}
+
+.auth-form[hidden] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .auth {
+        padding: 50px 20px;
+    }
+
+    .auth h1 {
+        font-size: 32px;
+    }
+}
