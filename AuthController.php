@@ -23,6 +23,11 @@ class AuthController
             Resposta::erro('Dados inválidos.', 422, $resultado['erros']);
         }
 
+        Logger::info('usuario_criado', [
+            'usuario_id' => $resultado['id'],
+            'ip'         => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]);
+
         Resposta::sucesso(['id' => $resultado['id']], 201);
     }
 
@@ -40,10 +45,22 @@ class AuthController
         $usuario = $this->auth->autenticar($email, $senha);
 
         if ($usuario === null) {
+            // Registramos o e-mail tentado, nunca a senha
+            Logger::aviso('falha_login', [
+                'email' => $email,
+                'ip'    => $_SERVER['REMOTE_ADDR'] ?? '',
+            ]);
+
             Resposta::erro('E-mail ou senha incorretos.', 401);
         }
 
         Sessao::logar($usuario);
+
+        Logger::info('login_sucesso', [
+            'usuario_id' => $usuario['id'],
+            'perfil'     => $usuario['perfil'],
+            'ip'         => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]);
 
         Resposta::sucesso([
             'nome'   => $usuario['nome'],

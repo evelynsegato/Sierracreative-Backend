@@ -29,7 +29,14 @@ try {
 
     $rotas->executar($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'] ?? '/');
 } catch (Throwable $e) {
-    // Erro inesperado: detalhes técnicos só no modo de desenvolvimento
+    // O detalhe técnico vai para o log (só o servidor vê)
+    Logger::erro('erro_interno', [
+        'mensagem' => $e->getMessage(),
+        'arquivo'  => basename($e->getFile()),
+        'linha'    => $e->getLine(),
+    ]);
+
+    // Na resposta, o detalhe só aparece no modo de desenvolvimento
     $detalhes = [];
 
     if (Config::get('APP_ENV') === 'development') {

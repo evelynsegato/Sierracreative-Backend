@@ -14,6 +14,13 @@ class SolicitacaoController
         $usuario = Autorizacao::exigirPerfil('cliente', 'admin');
         $resultado = $this->servico->criar($usuario['id'], $this->lerJson());
 
+        if (isset($resultado['id'])) {
+            Logger::info('solicitacao_criada', [
+                'solicitacao_id' => $resultado['id'],
+                'usuario_id'     => $usuario['id'],
+            ]);
+        }
+
         $this->responder($resultado, 201, ['id' => $resultado['id'] ?? null]);
     }
 
