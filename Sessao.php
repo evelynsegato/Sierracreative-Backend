@@ -23,6 +23,9 @@ class Sessao
         // Gera um novo código de sessão ao logar (evita "session fixation")
         session_regenerate_id(true);
 
+        // Novo token CSRF para a sessão logada
+        Csrf::renovar();
+
         $_SESSION['usuario'] = [
             'id'     => (int) $usuario['id'],
             'nome'   => $usuario['nome'],

@@ -1,6 +1,5 @@
 const formSolicitacao = document.getElementById('form-solicitacao');
 const avisoLogin = document.getElementById('aviso-login');
-const botaoEnviar = document.getElementById('botao-enviar');
 const msgFormulario = document.getElementById('mensagem-formulario');
 
 function mostrarMsg(texto, tipo) {
@@ -26,8 +25,8 @@ function bloquearFormulario(bloquear) {
 
 async function verificarLogin() {
     try {
-        const resposta = await fetch('api.php/auth/eu');
-        bloquearFormulario(resposta.status !== 200);
+        const { status } = await api('/auth/eu');
+        bloquearFormulario(status !== 200);
     } catch (erro) {
         bloquearFormulario(true);
     }
@@ -45,21 +44,15 @@ formSolicitacao.addEventListener('submit', async (evento) => {
     };
 
     try {
-        const resposta = await fetch('api.php/solicitacoes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dados),
-        });
+        const { status, corpo } = await api('/solicitacoes', 'POST', dados);
 
-        const corpo = await resposta.json();
-
-        if (resposta.status === 201) {
+        if (status === 201) {
             formSolicitacao.reset();
             mostrarMsg('Mensagem enviada com sucesso! Entraremos em contato.', 'ok');
             return;
         }
 
-        if (resposta.status === 401) {
+        if (status === 401) {
             bloquearFormulario(true);
             mostrarMsg('Sua sessão expirou. Faça login novamente.', 'erro');
             return;

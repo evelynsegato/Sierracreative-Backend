@@ -5,19 +5,6 @@ const abaLogin = document.getElementById('aba-login');
 const abaCadastro = document.getElementById('aba-cadastro');
 const mensagem = document.getElementById('auth-mensagem');
 
-// ---------- Função que fala com a API ----------
-// Envia o pedido e devolve { status, corpo }
-async function chamarApi(caminho, metodo, dados) {
-    const resposta = await fetch('api.php' + caminho, {
-        method: metodo,
-        headers: { 'Content-Type': 'application/json' },
-        body: dados ? JSON.stringify(dados) : undefined,
-    });
-
-    const corpo = await resposta.json();
-    return { status: resposta.status, corpo };
-}
-
 // ---------- Mostrar mensagens ----------
 // Usamos textContent (e nunca innerHTML) para o texto nunca ser tratado como HTML.
 // Isso protege contra XSS.
@@ -56,8 +43,8 @@ abaLogin.addEventListener('click', () => mostrarAba('login'));
 abaCadastro.addEventListener('click', () => mostrarAba('cadastro'));
 
 // ---------- Login ----------
-async function fazerLogin(email, senha) {
-    return chamarApi('/auth/login', 'POST', { email, senha });
+function fazerLogin(email, senha) {
+    return api('/auth/login', 'POST', { email, senha });
 }
 
 formLogin.addEventListener('submit', async (evento) => {
@@ -95,7 +82,7 @@ formCadastro.addEventListener('submit', async (evento) => {
     };
 
     try {
-        const { status, corpo } = await chamarApi('/auth/cadastro', 'POST', dados);
+        const { status, corpo } = await api('/auth/cadastro', 'POST', dados);
 
         if (status !== 201) {
             mostrarMensagem(corpo.mensagem || 'Não foi possível cadastrar.', 'erro');

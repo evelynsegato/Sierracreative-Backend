@@ -3,12 +3,16 @@
 require __DIR__ . '/../src/bootstrap.php';
 
 try {
+    // Todo pedido que altera dados precisa do token CSRF
+    Csrf::verificar();
+
     $rotas = new Rotas();
 
     $auth = new AuthController();
     $solicitacoes = new SolicitacaoController();
 
     // Autenticação
+    $rotas->adicionar('GET',  '/auth/csrf',     fn() => Resposta::sucesso(['token' => Csrf::token()]));
     $rotas->adicionar('POST', '/auth/cadastro', fn() => $auth->cadastrar());
     $rotas->adicionar('POST', '/auth/login',    fn() => $auth->login());
     $rotas->adicionar('POST', '/auth/logout',   fn() => $auth->logout());
