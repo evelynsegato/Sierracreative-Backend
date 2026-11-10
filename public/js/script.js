@@ -1,0 +1,87 @@
+const carrosseis = document.querySelectorAll('.carrossel');
+
+carrosseis.forEach(carrossel => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carrossel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        carrossel.classList.add('ativo');
+        startX = e.pageX - carrossel.offsetLeft;
+        scrollLeft = carrossel.scrollLeft;
+    });
+
+    carrossel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carrossel.classList.remove('ativo');
+    });
+
+    carrossel.addEventListener('mouseup', () => {
+        isDown = false;
+        carrossel.classList.remove('ativo');
+    });
+
+    carrossel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carrossel.offsetLeft;
+        const walk = (x - startX) * 2;
+        carrossel.scrollLeft = scrollLeft - walk;
+    });
+});
+
+let servicoAtual = 0;
+
+const slidesServico = document.querySelectorAll('.servico-slide');
+const bolinhasServico = document.querySelectorAll('.bolinha-servico');
+
+function mostrarServico(numero) {
+
+    slidesServico.forEach(slide => {
+        slide.classList.remove('ativo');
+    });
+
+    bolinhasServico.forEach(bolinha => {
+        bolinha.classList.remove('ativa');
+    });
+
+    slidesServico[numero].classList.add('ativo');
+    bolinhasServico[numero].classList.add('ativa');
+
+    servicoAtual = numero;
+}
+
+
+function mudarServico(direcao) {
+
+    servicoAtual += direcao;
+
+    if (servicoAtual >= slidesServico.length) {
+        servicoAtual = 0;
+    }
+
+    if (servicoAtual < 0) {
+        servicoAtual = slidesServico.length - 1;
+    }
+
+    mostrarServico(servicoAtual);
+}
+
+
+function irParaServico(numero) {
+
+    mostrarServico(numero);
+
+}
+
+
+if (slidesServico.length > 0) {
+
+    setInterval(() => {
+
+        mudarServico(1);
+
+    }, 6000);
+
+}
