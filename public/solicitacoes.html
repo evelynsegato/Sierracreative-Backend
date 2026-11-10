@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitações | Sierra Creative</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/solicitacoes.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html" class="logo">SIERRA CREATIVE</a>
+
+        <nav>
+
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="contato.html">Contato</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="painel">
+
+            <p class="contato-pequeno" id="painel-perfil">ÁREA DO CLIENTE</p>
+
+            <h1 id="painel-titulo">Minhas solicitações</h1>
+
+            <p id="painel-mensagem" class="auth-mensagem"></p>
+
+            <div id="lista-solicitacoes"></div>
+
+            <form id="form-edicao" class="formulario-contato painel-edicao" hidden>
+
+                <h2>Editar solicitação</h2>
+
+                <label for="edit-tipo">Serviço</label>
+                <select id="edit-tipo" name="tipo_servico" required>
+                    <option value="videomaker">Videomaker</option>
+                    <option value="storymaker">Storymaker</option>
+                </select>
+                <p class="auth-erro" data-erro="tipo_servico"></p>
+
+                <label for="edit-telefone">Telefone</label>
+                <input type="tel" id="edit-telefone" name="telefone" maxlength="20" required>
+                <p class="auth-erro" data-erro="telefone"></p>
+
+                <label for="edit-mensagem">Mensagem</label>
+                <textarea id="edit-mensagem" name="mensagem" rows="5" maxlength="2000" required></textarea>
+                <p class="auth-erro" data-erro="mensagem"></p>
+
+                <div class="painel-botoes">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="edit-cancelar" class="botao-secundario">Fechar</button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>© 2026 Sierra Creative. Todos os direitos reservados.</p>
+
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/solicitacoes.js"></script>
+    <script src="js/nav.js"></script>
+
+</body>
+
+</html>

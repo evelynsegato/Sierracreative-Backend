@@ -9,6 +9,7 @@
     <title>Contato | Sierra Creative</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
 
 </head>
 
@@ -81,50 +82,62 @@
                 </div>
 
 
-                <form class="formulario-contato">
+                                <div class="contato-formulario-area">
 
-                    <label for="nome">Nome</label>
+                    <p id="aviso-login" class="aviso-login" hidden>
+                        Faça login para enviar sua mensagem.
+                        <a href="entrar.html">Entrar ou criar conta</a>
+                    </p>
 
-                    <input
-                        type="text"
-                        id="nome"
-                        name="nome"
-                        placeholder="Seu nome"
-                        required
-                    >
+                    <form class="formulario-contato" id="form-solicitacao">
 
+                        <label for="tipo_servico">Serviço</label>
 
-                    <label for="telefone">Telefone</label>
-
-                    <input
-                        type="tel"
-                        id="telefone"
-                        name="telefone"
-                        placeholder="Seu telefone"
-                        required
-                    >
-
-                    <p id="erro-telefone"></p>
+                        <select id="tipo_servico" name="tipo_servico" required>
+                            <option value="">Escolha um serviço</option>
+                            <option value="videomaker">Videomaker</option>
+                            <option value="storymaker">Storymaker</option>
+                        </select>
+                        <p class="auth-erro" data-erro="tipo_servico"></p>
 
 
-                    <label for="mensagem">Mensagem</label>
+                        <label for="telefone">Telefone</label>
 
-                    <textarea
-                        id="mensagem"
-                        name="mensagem"
-                        rows="6"
-                        placeholder="Conte um pouco sobre seu projeto"
-                        required
-                    ></textarea>
+                        <input
+                            type="tel"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="Seu telefone com DDD"
+                            maxlength="20"
+                            required
+                        >
+
+                        <p id="erro-telefone" class="auth-erro" data-erro="telefone"></p>
 
 
-                    <button type="submit">
-                        Enviar mensagem
-                    </button>
+                        <label for="mensagem">Mensagem</label>
 
-                </form>
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="6"
+                            maxlength="2000"
+                            placeholder="Conte um pouco sobre seu projeto"
+                            required
+                        ></textarea>
 
-                <p id="mensagem-formulario"></p>
+                        <p class="auth-erro" data-erro="mensagem"></p>
+
+
+                        <button type="submit" id="botao-enviar">
+                            Enviar mensagem
+                        </button>
+
+                    </form>
+
+                    <p id="mensagem-formulario" class="auth-mensagem"></p>
+
+                </div>
 
             </div>
 
@@ -132,13 +145,17 @@
 
     </main>
 
-    <script src="script.js"></script>
 
     <footer>
 
     <p>© 2026 Sierra Creative. Todos os direitos reservados.</p>
 
     </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/contato.js"></script>
+    <script src="js/nav.js"></script>
 
 </body>
 

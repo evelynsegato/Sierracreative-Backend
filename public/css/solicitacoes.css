@@ -1,0 +1,132 @@
+.painel {
+    padding: 80px 8%;
+    background-color: var(--preto);
+    min-height: 60vh;
+}
+
+.painel h1 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    margin: 0 0 30px 0;
+}
+
+.cartao {
+    background-color: var(--cinza);
+    border: 1px solid #333333;
+    padding: 25px;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.cartao-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.cartao h3 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cartao p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+.etiqueta {
+    padding: 4px 12px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--dourado);
+    color: var(--dourado);
+}
+
+.etiqueta.cancelada {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.etiqueta.concluida {
+    border-color: #7bd88f;
+    color: #7bd88f;
+}
+
+.painel-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.painel-botoes button,
+.painel-botoes select {
+    padding: 10px 18px;
+    border: 1px solid #555555;
+    background-color: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.painel-botoes select {
+    background-color: var(--cinza);
+}
+
+.painel-botoes button:hover {
+    background-color: var(--dourado);
+    border-color: var(--dourado);
+}
+
+.painel-botoes .perigo:hover {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.painel-botoes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.painel-edicao {
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.painel-edicao h2 {
+    margin: 0 0 20px 0;
+}
+
+.painel-edicao[hidden] {
+    display: none;
+}
+
+.botao-secundario {
+    background-color: transparent !important;
+    color: white !important;
+    border: 1px solid #555555 !important;
+}
+
+@media (max-width: 768px) {
+    .painel {
+        padding: 50px 20px;
+    }
+
+    .painel h1 {
+        font-size: 32px;
+    }
+
+    .cartao-topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

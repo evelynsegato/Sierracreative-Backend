@@ -1,0 +1,113 @@
+.auth {
+    padding: 80px 8%;
+    background-color: var(--preto);
+    min-height: 60vh;
+}
+
+.auth h1 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    margin: 0 0 30px 0;
+}
+
+.auth-abas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.aba {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #333333;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.aba.ativa {
+    background-color: var(--dourado);
+    border-color: var(--dourado);
+}
+
+.auth-form {
+    max-width: 450px;
+}
+
+.auth-erro {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin: -15px 0 20px 0;
+    min-height: 0;
+}
+
+.auth-mensagem {
+    max-width: 450px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.auth-mensagem.erro {
+    color: #ff6b6b;
+}
+
+.auth-mensagem.ok {
+    color: #7bd88f;
+}
+
+.auth-form[hidden] {
+    display: none;
+}
+
+.contato-formulario-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.aviso-login {
+    background-color: var(--cinza);
+    border-left: 3px solid var(--dourado);
+    padding: 15px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.aviso-login a {
+    color: var(--dourado);
+    text-decoration: underline;
+}
+
+.aviso-login[hidden] {
+    display: none;
+}
+
+.formulario-contato select {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--cinza);
+    border: 1px solid #333333;
+    color: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.formulario-contato input:disabled,
+.formulario-contato select:disabled,
+.formulario-contato textarea:disabled,
+.formulario-contato button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .auth {
+        padding: 50px 20px;
+    }
+
+    .auth h1 {
+        font-size: 32px;
+    }
+}
